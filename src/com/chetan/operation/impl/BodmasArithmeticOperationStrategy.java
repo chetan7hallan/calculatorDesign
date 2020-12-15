@@ -6,7 +6,7 @@ package com.chetan.operation.impl;
 import java.math.BigInteger;
 import java.util.Stack;
 import com.chetan.operation.ArithmeticOperationStrategy;
-import com.chetan.operation.MathOperationStrategy;
+import com.chetan.operation.OperatorStrategy;
 
 /**
  * @author chetan.hallan
@@ -67,9 +67,7 @@ public class BodmasArithmeticOperationStrategy implements ArithmeticOperationStr
 		}
 
 		while (!characters.empty()) {
-			integers.push(applyOperation(characters.pop(), 
-							integers.pop(), 
-						integers.pop()));
+			integers.push(applyOperation(characters.pop(), integers.pop(), integers.pop()));
 		}
 
 		if(integers.size()>1) {
@@ -91,22 +89,22 @@ public class BodmasArithmeticOperationStrategy implements ArithmeticOperationStr
 
 	private BigInteger applyOperation(Character operation, BigInteger var2, BigInteger var1) {
 		
-		MathOperationStrategy mathOperationStrategy = null;
+		OperatorStrategy operatorStrategy = null;
 		
 		switch(operation) {
-			case '+' : mathOperationStrategy = new AddMathOperationStrategy();
+			case '+' : operatorStrategy = new AddOperatorStrategy();
 			break;
 			
-			case '-' : mathOperationStrategy = new SubtractMathOperationStrategy();
+			case '-' : operatorStrategy = new SubtractOperatorStrategy();
 			break;
 	
-			case '*' : mathOperationStrategy = new MultiplicationMathOperationStrategy();
+			case '*' : operatorStrategy = new MultiplicationOperatorStrategy();
 			break;
 	
-			case '/' : mathOperationStrategy = new DivideMathOperationStrategy();
+			case '/' : operatorStrategy = new DivideOperatorStrategy();
 			break;
 		}
 		
-		return mathOperationStrategy.calculate(var1, var2);
+		return operatorStrategy.calculate(var1, var2);
 	}
 }
