@@ -30,7 +30,7 @@ public class MainController {
 	private static void showCalculatorOperations() {
 		
 		BodmasOperatorEnum[] operations = BodmasOperatorEnum.values();
-		System.out.print("CALCULATOR::OPERATIONS ALLOWED ");
+		System.out.print("CALCULATOR::OPERATIONS ALLOWED (Operand operator operand)");
 		for(BodmasOperatorEnum operation : operations) {
 			System.out.print(" "+operation.getOperator());
 		}

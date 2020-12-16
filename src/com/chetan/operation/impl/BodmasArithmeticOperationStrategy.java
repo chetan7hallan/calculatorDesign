@@ -12,6 +12,7 @@ import com.chetan.operation.OperatorStrategy;
  * @author chetan.hallan
  *
  */
+@Deprecated
 public class BodmasArithmeticOperationStrategy implements ArithmeticOperationStrategy {
 	
 	/**
@@ -32,6 +33,7 @@ public class BodmasArithmeticOperationStrategy implements ArithmeticOperationStr
 			if (tokens[i] == ' ')
 				continue;
 
+			
 			if (tokens[i] >= '0' && tokens[i] <= '9')
 			{
 				StringBuffer sbuf = new StringBuffer();
